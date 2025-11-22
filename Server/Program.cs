@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,6 +40,19 @@ namespace Server
                 }
             }
             return FoldersFile;
+        }
+        public static void ServerStart()
+        {
+            IPEndPoint endPoint = new IPEndPoint(IpAdress, Port);
+            Socket sListner = new Socket(
+                AddressFamily.InterNetwork,
+                SocketType.Stream,
+                ProtocolType.Tcp
+                );
+            sListner.Bind(endPoint);
+            sListner.Listen(10);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Сервер запущен");
         }
     }
 }
