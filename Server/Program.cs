@@ -20,5 +20,25 @@ namespace Server
             return user != null;
 
         }
+        public static List<string> GetDirectory(string src)
+        {
+            List<string> FoldersFile = new List<string>();
+            if(Directory.Exists(src))
+            {
+                string[] dirs = Directory.GetDirectories(src);
+                foreach(string dir in dirs)
+                {
+                    string NameDirectory = dir.Replace(src, "");
+                    FoldersFile.Add(NameDirectory + "/");
+                }
+                string[] files = Directory.GetFiles(src);
+                foreach(string file in files)
+                {
+                    string NameFile = file.Replace(src, "");
+                    FoldersFile.Add(NameFile);
+                }
+            }
+            return FoldersFile;
+        }
     }
 }
