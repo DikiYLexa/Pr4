@@ -198,7 +198,6 @@ namespace ClientW
                     File.WriteAllBytes(localSavePath, fileData);
                     MessageBox.Show($"Файл скачан и сохранён в: {localSavePath}");
                 }
-                else MessageBox.Show("Не удалось получить файл. Проверьте путь на сервере.");
             }
             catch (Exception ex)
             {

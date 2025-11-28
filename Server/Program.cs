@@ -19,21 +19,7 @@ namespace Server
         public static IPAddress IpAddress;
         public static int Port;
         private static string connectionString = "Server=127.0.0.1;port=3307;Database=pr4;uid=root;pwd=;";
-        public static bool AuthenticateUser(string login, string password)
-        {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT COUNT(*) FROM users WHERE login = @login AND password = @password";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@login", login);
-                    cmd.Parameters.AddWithValue("@password", password);
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
-                }
-            }
-        }
+
 
         public static bool AutorizationUser(string login, string password, out int userId)
         {
@@ -95,7 +81,7 @@ namespace Server
             try
             {
                 string Data = null;
-                byte[] Bytes = new byte[10485760];
+                byte[] Bytes = new byte[1048576000];
                 int BytesRec = Handler.Receive(Bytes);
                 Data += Encoding.UTF8.GetString(Bytes, 0, BytesRec);
                 Console.Write("Сообщение от пользователя: " + Data + "\n");
