@@ -18,7 +18,7 @@ namespace Server
         public static List<User> Users = new List<User>();
         public static IPAddress IpAddress;
         public static int Port;
-        private static string connectionString = "Server=localhost;port=3307;Database=ftp_data;uid=root;pwd=;";
+        private static string connectionString = "Server=127.0.0.1;port=3307;Database=pr4;uid=root;pwd=;";
         public static bool AuthenticateUser(string login, string password)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -221,7 +221,7 @@ namespace Server
 
         private static void LogCommandToDatabase(int userId, string command)
         {
-            string connectionString = "Server=localhost;port=3307;Database=ftp_data;uid=root;pwd=;";
+            string connectionString = "Server=127.0.0.1;port=3307;Database=pr4;uid=root;pwd=;";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {

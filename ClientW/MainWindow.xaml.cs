@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Common;
 using Microsoft.Win32;
 using Newtonsoft.Json;
+using Path = System.IO.Path;
 
 namespace ClientW
 {

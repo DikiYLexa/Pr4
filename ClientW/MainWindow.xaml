@@ -6,25 +6,26 @@
         xmlns:local="clr-namespace:ClientW"
         mc:Ignorable="d"
            Title="FTP-Client" Height="450" Width="800" MinHeight="450" MinWidth="800">
-    <Grid>
+    <Grid Background="BlanchedAlmond">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Margin="10">
-            <TextBlock Text="IP: " Width="15" Margin="5"/>
-            <TextBox x:Name="txtIpAddress" Text="127.0.0.1" Width="120" Margin="5" ToolTip="IP Address"/>
-            <TextBlock Text="Port: " Width="25" Margin="5"/>
-            <TextBox x:Name="txtPort" Text="5000" Width="60" Margin="5" ToolTip="Port"/>
+        <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="1">
             <TextBlock Text="Login: " Width="35" Margin="5"/>
             <TextBox x:Name="txtLogin" Width="145" Margin="5" ToolTip="Login"/>
             <TextBlock Text="Password: " Width="55" Margin="5"/>
             <PasswordBox x:Name="txtPassword" Width="145" Margin="5" ToolTip="Password"/>
-            <Button Content="Connect" Width="80" Margin="5" Click="BtnConnect_Click"/>
+            <TextBlock Text="IP: " Width="15" Margin="5"/>
+            <TextBox x:Name="txtIpAddress" Text="127.0.0.1" Width="120" Margin="5" ToolTip="IP Address"/>
+            <TextBlock Text="Port: " Width="25" Margin="5"/>
+            <TextBox x:Name="txtPort" Text="5000" Width="60" Margin="5" ToolTip="Port"/>
+
+            <Button Content="Connect" Background="White" Width="80" Margin="5" Click="BtnConnect_Click"/>
         </StackPanel>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="0">
             <Label Content="Директория сервера: " HorizontalAlignment="Left" Grid.Column="0" VerticalAlignment="Top" Margin="10" FontSize="16"/>
-            <Button x:Name="downloadBtn" Content="Загрузить на сервер" Width="170" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,10,80,10" Click="Download" Height="30"/>
+            <Button x:Name="downloadBtn" Background="White" Content="Загрузить на сервер" Width="170" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,10,80,10" Click="Download" Height="30"/>
             <ListBox x:Name="lstDirectories" Margin="10,50,10,10" MouseDoubleClick="lstDirectories_MouseDoubleClick"/>
         </Grid>
     </Grid>
